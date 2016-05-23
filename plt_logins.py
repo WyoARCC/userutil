@@ -88,6 +88,7 @@ user_map = create_user_map(history)
 
 num_logins = create_list_zeros(history)
 max_logins = 0;
+number_of_logins = 0
 
 for entry in m:
     username = entry.split(" ")[0]
@@ -116,10 +117,12 @@ for entry in m:
             days_since_login = (today_date - ent_date).days
             if (days_since_login < history):
                login_list.append(username)
+               number_of_logins += 1
                user_map[days_since_login].add(username)
                num_logins[days_since_login] = num_logins[days_since_login] + 1
                max_logins = max(max_logins, num_logins[days_since_login])
 pad = 1
+print number_of_logins
 max_logins = max_logins + pad
 num_unique_logins = unique_logins_perday(user_map)
 dates_list = create_list_dates(datetime.date.today(), history)
