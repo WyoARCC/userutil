@@ -116,7 +116,7 @@ fig_size[1] = 9
 plt.rcParams["figure.figsize"] = fig_size
 
 
-# Generate the pi chart, with labels. autopct can take a function as an argument and it passes the percent to it, so the percent needs to be turned back into the actual data
+# Generate the pi chart, with labels. autopct can take a function as an argument and it passes the percent to it, and the percent needs to be turned back into the actual data
 plt.pie([logins_from_campus, logins_from_home], labels=["Campus", "Other"], colors = ["b", "g"] , autopct = lambda(a):'{:g}'.format(a * total_logins / 100)) 
 
 
